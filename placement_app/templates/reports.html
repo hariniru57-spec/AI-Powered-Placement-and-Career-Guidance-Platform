@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Reports Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>📊 Reports Dashboard</h1>
+    <p>Visual analytics of placement performance.</p>
+
+    <div class="card" style="max-width:800px; margin-top:30px;">
+
+        <canvas id="placementChart"></canvas>
+
+    </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx = document.getElementById('placementChart');
+
+new Chart(ctx, {
+    type: 'bar',
+
+    data: {
+        labels: ['Python', 'Java', 'Web', 'AI', 'Cloud'],
+
+        datasets: [{
+            label: 'Students Placed',
+            data: [85, 72, 90, 65, 55],
+            backgroundColor: [
+                '#ff4b2b',
+                '#ff6b6b',
+                '#ff8c42',
+                '#ffb347',
+                '#ffcc70'
+            ],
+            borderRadius: 10
+        }]
+    },
+
+    options: {
+        responsive: true,
+
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white'
+                }
+            }
+        },
+
+        scales: {
+            x: {
+                ticks: {
+                    color: 'white'
+                }
+            },
+
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: 'white'
+                }
+            }
+        }
+    }
+});s
+</script>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Assessment{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>📝 Online Assessment</h1>
+    <p>Answer the following questions and check your score.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="card">
+
+            <h3>1. Which language is mainly used in Django?</h3>
+
+            <input type="radio" name="q1" value="a"> Java<br>
+            <input type="radio" name="q1" value="b"> Python<br>
+            <input type="radio" name="q1" value="c"> C++<br>
+            <input type="radio" name="q1" value="d"> PHP<br>
+
+            <hr>
+
+            <h3>2. HTML stands for?</h3>
+
+            <input type="radio" name="q2" value="a"> Hyper Text Markup Language<br>
+            <input type="radio" name="q2" value="b"> High Text Machine Language<br>
+            <input type="radio" name="q2" value="c"> Hyper Transfer Markup Language<br>
+            <input type="radio" name="q2" value="d"> Home Tool Markup Language<br>
+
+            <hr>
+
+            <h3>3. Which database are we using in this project?</h3>
+
+            <input type="radio" name="q3" value="a"> Oracle<br>
+            <input type="radio" name="q3" value="b"> MongoDB<br>
+            <input type="radio" name="q3" value="c"> SQLite<br>
+            <input type="radio" name="q3" value="d"> PostgreSQL<br>
+
+            <br><br>
+
+            <button type="submit" class="btn-primary">
+                Submit Assessment
+            </button>
+
+        </div>
+
+    </form>
+
+    {% if score != None %}
+
+    <div class="card">
+
+        <h2>Your Score: {{ score }}/3</h2>
+
+        {% if score == 3 %}
+            <p style="color:#28a745;">🎉 Excellent! You passed the assessment.</p>
+
+        {% elif score == 2 %}
+            <p style="color:orange;">👍 Good! Keep improving.</p>
+
+        {% else %}
+            <p style="color:red;">📚 Practice more and try again.</p>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

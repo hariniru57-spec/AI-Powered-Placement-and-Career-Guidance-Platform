@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>Welcome, {{ request.user.first_name }} 👋</h1>
+    <p>Your AI Career Dashboard</p>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>👤 My Profile</h3>
+            <p>Update your personal information.</p>
+            <a href="{% url 'profile' %}">Open</a>
+        </div>
+
+        <div class="card">
+            <h3>📄 Resume</h3>
+            <p>Upload and manage your resume.</p>
+            <a href="{% url 'resume' %}">Resume</a>
+        </div>
+
+        <div class="card">
+            <h3>🤖 AI Resume Analyzer</h3>
+            <p>Analyze your resume using AI.</p>
+            <a href="{% url 'analyzer' %}">Analyze</a>
+        </div>
+
+        <div class="card">
+            <h3>💼 Jobs</h3>
+            <p>Explore the latest job opportunities.</p>
+            <a href="{% url 'jobs' %}">View Jobs</a>
+        </div>
+
+        <div class="card">
+            <h3>🎯 Career Recommendation</h3>
+            <p>Find the best career path based on your interests.</p>
+            <a href="{% url 'career' %}">Explore</a>
+        </div>
+
+        <div class="card">
+            <h3>📊 Placement Prediction</h3>
+            <p>Predict your placement chances.</p>
+            <a href="{% url 'prediction' %}">Predict</a>
+        </div>
+
+        <div class="card">
+            <h3>🎤 Mock Interview</h3>
+            <p>Practice interview questions.</p>
+            <a href="{% url 'interview' %}">Start</a>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <a href="{% url 'logout' %}" class="btn-primary">🚪 Logout</a>
+
+</section>
+
+{% endblock %}

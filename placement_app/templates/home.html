@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | AI Powered Placement and Career Guidance Platform
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            AI Powered Placement
+            <br>
+            & Career Guidance Platform
+        </h1>
+
+        <p>
+            Build your future with Artificial Intelligence.
+            Discover careers, analyze your resume,
+            predict placements, and improve your skills.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{% url 'register' %}" class="btn-primary">
+                Get Started
+            </a>
+
+            <a href="#" class="btn-secondary">
+                Explore AI Tools
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<section class="features">
+
+    <h2 class="section-title">Our AI Features</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            <h3>🤖 AI Career Recommendation</h3>
+            <p>Get personalized career suggestions based on your interests and skills.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📄 Resume Analyzer</h3>
+            <p>Analyze your resume and receive AI-powered improvement tips.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📊 Placement Prediction</h3>
+            <p>Predict your placement chances using academic performance.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>📈 Skill Gap Analysis</h3>
+            <p>Identify missing skills and get recommendations to improve.</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="stats">
+
+    <h2 class="section-title">Placement Statistics</h2>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h2>5000+</h2>
+            <p>Students Placed</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>250+</h2>
+            <p>Partner Companies</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>92%</h2>
+            <p>Placement Rate</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1000+</h2>
+            <p>Job Opportunities</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="recruiters">
+
+    <h2 class="section-title">Top Recruiters</h2>
+
+    <div class="recruiter-container">
+
+        <div class="recruiter-card">Google</div>
+        <div class="recruiter-card">Microsoft</div>
+        <div class="recruiter-card">Amazon</div>
+        <div class="recruiter-card">TCS</div>
+        <div class="recruiter-card">Infosys</div>
+        <div class="recruiter-card">Accenture</div>
+
+    </div>
+
+</section>
+<section class="jobs">
+
+    <h2 class="section-title">Latest Job Openings</h2>
+
+    <div class="job-container">
+
+        <div class="job-card">
+            <h3>💻 Software Developer</h3>
+            <p>Company: TCS</p>
+            <p>Location: Chennai</p>
+            <a href="{% url 'jobs' %}" class="btn-primary">View Jobs</a>
+        </div>
+
+        <div class="job-card">
+            <h3>📊 Data Analyst</h3>
+            <p>Company: Infosys</p>
+            <p>Location: Bangalore</p>
+            <a href="{% url 'jobs' %}" class="btn-primary">View Jobs</a>
+        </div>
+
+        <div class="job-card">
+            <h3>🤖 AI Engineer</h3>
+            <p>Company: Microsoft</p>
+            <p>Location: Hyderabad</p>
+            <a href="{% url 'jobs' %}" class="btn-primary">View Jobs</a>
+        </div>
+
+    </div>
+
+</section>
+<section class="faq">
+
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq-container">
+
+        <div class="faq-card">
+            <h3>How does AI Career Guidance work?</h3>
+            <p>Our AI analyzes your skills, interests, and academic performance to recommend suitable career paths.</p>
+        </div>
+
+        <div class="faq-card">
+            <h3>Can I upload my resume?</h3>
+            <p>Yes. You can upload your resume and receive AI-powered suggestions to improve it.</p>
+        </div>
+
+        <div class="faq-card">
+            <h3>Is placement prediction accurate?</h3>
+            <p>It provides an estimated prediction based on your academic and skill profile.</p>
+        </div>
+
+    </div>
+
+</section>
+<footer class="footer">
+
+    <h2>AI Powered Placement & Career Guidance Platform</h2>
+
+    <p>Empowering Students with Artificial Intelligence.</p>
+
+    <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">AI Tools</a>
+        <a href="#">Jobs</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <p class="copyright">
+        © 2026 AI Powered Placement & Career Guidance Platform.
+        All Rights Reserved.
+    </p>
+
+</footer>
+{% endblock %}

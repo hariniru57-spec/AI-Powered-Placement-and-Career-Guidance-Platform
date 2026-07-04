@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Latest Jobs{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+    <h1>💼 Latest Job Openings</h1>
+    <p>Explore the latest opportunities.</p>
+
+    <div class="dashboard-cards">
+        {% for job in jobs %}
+        <div class="card">
+            <h3>{{ job.title }}</h3>
+            <p><strong>Company:</strong> {{ job.company }}</p>
+            <p><strong>Location:</strong> {{ job.location }}</p>
+            
+            <a href="{{ job.apply_link }}" class="apply-btn" target="_blank">Apply Now</a>
+        </div>
+        {% empty %}
+        <h3>No jobs available.</h3>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

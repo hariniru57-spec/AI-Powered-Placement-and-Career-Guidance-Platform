@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>👤 My Profile</h1>
+    <p>Manage your personal information.</p>
+
+    <div class="card" style="max-width:600px; margin-top:30px;">
+
+        <h3>{{ request.user.first_name }}</h3>
+
+        <p><strong>Email:</strong> {{ request.user.email }}</p>
+
+        <p><strong>Username:</strong> {{ request.user.username }}</p>
+
+        <hr>
+
+        <a href="#">Edit Profile</a>
+
+    </div>
+
+</section>
+
+{% endblock %}

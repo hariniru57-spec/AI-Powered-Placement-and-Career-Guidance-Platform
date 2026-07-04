@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}AI Career Recommendation{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>🤖 AI Career Recommendation</h1>
+    <p>Select your area of interest to get a career suggestion.</p>
+
+    <div class="card" style="max-width:600px; margin-top:30px;">
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label><strong>Select Your Interest</strong></label>
+
+            <br><br>
+
+            <select name="interest" required class="form-control">
+
+                <option value="">-- Select --</option>
+                <option value="AI">Artificial Intelligence</option>
+                <option value="Web">Web Development</option>
+                <option value="Cyber">Cyber Security</option>
+                <option value="Cloud">Cloud Computing</option>
+                <option value="Data">Data Science</option>
+
+            </select>
+
+            <br>
+
+            <button type="submit" class="btn-primary">
+                Get Recommendation
+            </button>
+
+        </form>
+
+        {% if career %}
+
+<div class="card" style="margin-top:25px;">
+
+    <h2>🎯 Recommended Career</h2>
+
+    <h3>{{ career.career }}</h3>
+
+    <p><strong>Required Skills:</strong> {{ career.skills }}</p>
+
+    <p><strong>Top Companies:</strong> {{ career.companies }}</p>
+
+</div>
+
+{% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

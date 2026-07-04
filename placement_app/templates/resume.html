@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Resume Upload{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>📄 Resume Upload</h1>
+    <p>Upload your latest resume for AI analysis.</p>
+
+    <div class="card" style="max-width:600px; margin-top:30px;">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <input type="file" name="resume" required>
+
+            <br><br>
+
+        <button type="submit" class="btn-primary">Upload Resume</button>
+        </form>
+        {% if analysis %}
+
+<div class="card" style="margin-top:30px;">
+
+    <h2>🤖 AI Resume Analysis</h2>
+
+    <h3>Score: {{ analysis.score }}/100</h3>
+
+    <h4>Skills Found:</h4>
+
+    <ul>
+        {% for skill in analysis.skills %}
+            <li>{{ skill }}</li>
+        {% empty %}
+            <li>No matching skills found.</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endif %}
+         
+        {% if messages %}
+    {% for message in messages %}
+        <p style="color:lightgreen; margin-top:15px;">
+            {{ message }}
+        </p>
+    {% endfor %}
+{% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

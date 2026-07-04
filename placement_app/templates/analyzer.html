@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}AI Resume Analyzer{% endblock %}
+
+{% block content %}
+
+<section class="dashboard">
+
+    <h1>🤖 AI Resume Analyzer</h1>
+    <p>Analyze your resume skills for placement readiness.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label><strong>Enter Your Skills</strong></label><br><br>
+
+        <textarea name="skills" rows="6" cols="60"
+        placeholder="Example: Python, Django, SQL, HTML, Communication"
+        required></textarea>
+
+        <br><br>
+
+        <button type="submit" class="btn-primary">
+            Analyze Resume
+        </button>
+
+    </form>
+
+    {% if analysis %}
+
+    <div class="card">
+
+        <h3>📊 ATS Score</h3>
+        <h1 style="font-size:50px; color:#28a745; text-align:center;">
+     {{ analysis.score }}/100
+        </h1>
+        <div style="width:100%; background:#444; border-radius:10px; height:20px; margin:15px 0;">
+
+    <div style="
+        width:{{ analysis.score }}%;
+        background:#28a745;
+        height:20px;
+        border-radius:10px;
+        text-align:center;
+        color:white;
+        font-size:12px;
+        line-height:20px;">
+
+        {{ analysis.score }}%
+
+    </div>
+
+</div>
+
+
+        <hr>
+
+        <h3>✅ Resume Analysis</h3>
+
+        {% if analysis.score >= 80 %}
+            <p>Your resume is excellent and placement ready.</p>
+        {% elif analysis.score >= 60 %}
+            <p>Your resume is good. Add a few more skills to improve.</p>
+        {% else %}
+            <p>Your resume needs improvement before placements.</p>
+        {% endif %}
+
+        <hr>
+        <hr>
+
+<h3>✅ Strengths</h3>
+
+<ul>
+    {% if "Add Python skill." not in analysis.suggestions %}
+        <li>Python Skill Available</li>
+    {% endif %}
+
+    {% if "Add Django skill." not in analysis.suggestions %}
+        <li>Django Knowledge</li>
+    {% endif %}
+
+    {% if "Add SQL skill." not in analysis.suggestions %}
+        <li>Database Skills</li>
+    {% endif %}
+</ul>
+
+        <h3>⚠ Suggestions</h3>
+
+        <ul>
+            {% for item in analysis.suggestions %}
+                <li>{{ item }}</li>
+            {% empty %}
+                <li>No suggestions. Excellent Resume!</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}
